@@ -32,7 +32,7 @@
                 <div class="col md-d ">
                     <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWithdraw">00</span></h2>
                     </div>
                 </div>
                 <div class="col md-d">
@@ -103,7 +103,10 @@
             //const withdrawNumber = parseFloat(withdrawAmount)
 
             const withdrawNumber = getInputNumber("withdrawAmount")
-            console.log(withdrawNumber);
+            updateSpanText("currentWithdraw", withdrawNumber);
+            updateSpanText("currentBalance", -1 * withdrawNumber) //total balance theke kome jabe jodi total number er id ke -1 diye gun kora hoy
+
+            document.getElementById("withdrawAmount").value = "";
         })
 
         function getInputNumber(id) {
